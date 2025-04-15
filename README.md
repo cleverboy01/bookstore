@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+Comprehensive Documentation of the Online Bookstore Project  
+**Table of Contents**  
+- Introduction  
+- Project Structure  
+- Main Features  
+  - Escrow Payment System  
+  - Order Tracking  
+  - Rating and Review System  
+  - Multilingual Support  
+  - AI Chat  
+  - About Us Page  
+- Installation and Setup Guide  
+- Development Stages  
+- Technologies Used  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Introduction**  
+This project is an online bookstore developed using React and JavaScript. The primary goal is to create a secure and user-friendly platform for buying and selling books, utilizing an escrow payment system to ensure transaction security.  
 
-## Available Scripts
+In this system, when a user purchases a book, the payment is held in the system's account and only transferred to the seller after the buyer confirms receipt of the book and the seller confirms shipment.  
 
-In the project directory, you can run:
+**Main Features**  
 
-### `npm start`
+**Escrow Payment System**  
+The escrow payment system is a key feature that ensures transaction security. It operates as follows:  
+1. The buyer selects and purchases a book.  
+2. The payment is held in the system's account.  
+3. The seller ships the book.  
+4. The buyer confirms receipt of the book.  
+5. The seller confirms shipment.  
+6. The system releases the payment to the seller's account.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This system is implemented in the files `EscrowContext.js`, `CartPage.js`, and `OrderPage.js`.  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Order Tracking**  
+The order tracking system allows users to view the status of their orders at every stage. The stages include:  
+- Order Placed  
+- Order Processing  
+- Order Shipped  
+- Order Delivered  
 
-### `npm test`
+This system is implemented in the file `OrderPage.js`.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Rating and Review System**  
+The rating and review system enables users to submit reviews and rate books. It includes:  
+- Displaying the average rating.  
+- Showing the distribution of ratings (e.g., percentage of 5-star, 4-star, etc.).  
+- Displaying user reviews.  
+- Allowing users to submit new reviews and ratings.  
 
-### `npm run build`
+This system is implemented in the files `RatingContext.js` and `RatingPage.js`.  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Multilingual Support**  
+The multilingual support system allows users to select their preferred language. Supported languages include:  
+- Persian  
+- English  
+- Arabic  
+- French  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+It also supports text direction changes (RTL/LTR) and date formatting.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This system is implemented in the files `i18n.js` and `LanguagePage.js`.  
 
-### `npm run eject`
+**AI Chat**  
+The AI chat system enables users to interact with intelligent advisors and ask questions about books. It includes four types of advisors:  
+- General Book Advisor  
+- Book Recommender  
+- Website Support  
+- Literature Expert  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This system is implemented in the files `AIChatContext.js`, `AIChat.js`, and `ChatPage.js`.  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**About Us Page**  
+The About Us page provides information about the bookstore, the team, social media links (Twitter, Instagram, Telegram), and contact details.  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This page is implemented in the file `AboutPage.js`.  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Installation and Setup Guide**  
+To install and run the project, follow these steps:  
 
-## Learn More
+1. Clone the project from GitHub or download and extract the zip file:  
+   ```bash  
+   git clone https://github.com/username/bookstore-project.git  
+   cd bookstore-project  
+   ```  
+2. Install dependencies:  
+   ```bash  
+   npm install  
+   ```  
+3. Run the project in development mode:  
+   ```bash  
+   npm start  
+   ```  
+4. Build the production version:  
+   ```bash  
+   npm run build  
+   ```  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Development Stages**  
+The project was developed in several stages:  
+1. **React Project Setup**: Creating the project using Create React App and installing core dependencies.  
+2. **Project Structuring**: Setting up the folder and file structure.  
+3. **Building Base UI Components**: Creating basic components like Button, Form, Modal, etc.  
+4. **Creating Book List and Details Pages**: Implementing pages to display books and their details.  
+5. **Implementing User Authentication**: Creating login, registration, password recovery, and user profile pages.  
+6. **Developing Escrow Payment System**: Implementing the escrow system and shopping cart page.  
+7. **Creating Order Tracking System**: Implementing the order tracking page with order stage displays.  
+8. **Building Rating and Review System**: Implementing the system for submitting and displaying reviews and ratings.  
+9. **Implementing Multilingual Support**: Adding language switching and text direction capabilities.  
+10. **Developing AI Chat Feature**: Implementing the intelligent advisor chat system.  
+11. **Creating About Us Page**: Designing the About Us page with team info and social media links.  
+12. **Testing Application Performance**: Ensuring all features function correctly.  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Technologies Used**  
+The project utilizes the following technologies:  
+- **React**: JavaScript library for building user interfaces.  
+- **React Router**: For managing navigation in the application.  
+- **Context API**: For state management across the application.  
+- **Styled Components**: For styling components.  
+- **React Icons**: For using icons.  
+- **i18next**: For implementing multilingual support.  
+- **Axios**: For making HTTP requests.

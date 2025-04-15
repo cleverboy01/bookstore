@@ -1,70 +1,175 @@
-# Getting Started with Create React App
+مستندات جامع پروژه فروشگاه کتاب آنلاین
+فهرست مطالب
+مقدمه
+ساختار پروژه
+ویژگی‌های اصلی
+سیستم پرداخت امانی (Escrow)
+پیگیری سفارشات
+سیستم رتبه‌بندی و نظرات
+پشتیبانی چندزبانه
+چت با هوش مصنوعی
+صفحه درباره ما
+راهنمای نصب و اجرا
+مراحل توسعه
+تکنولوژی‌های استفاده شده
+مقدمه
+این پروژه یک فروشگاه کتاب آنلاین است که با استفاده از React و JavaScript توسعه داده شده است. هدف اصلی این پروژه، ایجاد یک پلتفرم امن و کاربرپسند برای خرید و فروش کتاب است که در آن از سیستم پرداخت امانی (Escrow) استفاده می‌شود تا امنیت معاملات تضمین گردد.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+در این سیستم، وقتی کاربر کتابی را خریداری می‌کند، مبلغ پرداختی در حساب سیستم بلوکه می‌شود و تنها پس از تأیید دریافت کتاب توسط خریدار و تأیید ارسال توسط فروشنده، مبلغ به حساب فروشنده واریز می‌شود.
 
-## Available Scripts
+ساختار پروژه
+ساختار پروژه به صورت زیر است:
 
-In the project directory, you can run:
+bookstore-project/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── icons/
+│   │   └── styles/
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Header.js
+│   │   │   ├── Footer.js
+│   │   │   └── Sidebar.js
+│   │   ├── ui/
+│   │   │   ├── Button.js
+│   │   │   ├── Form.js
+│   │   │   ├── Modal.js
+│   │   │   └── Pagination.js
+│   │   ├── book/
+│   │   │   └── BookCard.js
+│   │   ├── auth/
+│   │   ├── payment/
+│   │   ├── order/
+│   │   ├── review/
+│   │   └── chat/
+│   │       └── AIChat.js
+│   ├── context/
+│   │   ├── AuthContext.js
+│   │   ├── CartContext.js
+│   │   ├── EscrowContext.js
+│   │   ├── RatingContext.js
+│   │   └── AIChatContext.js
+│   ├── hooks/
+│   ├── locales/
+│   ├── pages/
+│   │   ├── HomePage.js
+│   │   ├── BooksPage.js
+│   │   ├── BookDetailPage.js
+│   │   ├── LoginPage.js
+│   │   ├── RegisterPage.js
+│   │   ├── ForgotPasswordPage.js
+│   │   ├── ProfilePage.js
+│   │   ├── CartPage.js
+│   │   ├── OrderPage.js
+│   │   ├── RatingPage.js
+│   │   ├── LanguagePage.js
+│   │   ├── ChatPage.js
+│   │   └── AboutPage.js
+│   ├── services/
+│   │   └── api.js
+│   ├── utils/
+│   ├── App.js
+│   ├── App.css
+│   ├── index.js
+│   └── i18n.js
+└── package.json
+ویژگی‌های اصلی
+سیستم پرداخت امانی (Escrow)
+سیستم پرداخت امانی یکی از ویژگی‌های اصلی این فروشگاه است که امنیت معاملات را تضمین می‌کند. این سیستم به صورت زیر عمل می‌کند:
 
-### `npm start`
+خریدار کتاب را انتخاب و خرید می‌کند
+مبلغ پرداختی در حساب سیستم بلوکه می‌شود
+فروشنده کتاب را ارسال می‌کند
+خریدار پس از دریافت کتاب، دریافت را تأیید می‌کند
+فروشنده نیز ارسال را تأیید می‌کند
+سیستم مبلغ را به حساب فروشنده واریز می‌کند
+این سیستم در فایل‌های EscrowContext.js، CartPage.js و OrderPage.js پیاده‌سازی شده است.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+پیگیری سفارشات
+سیستم پیگیری سفارشات به کاربران امکان می‌دهد وضعیت سفارش‌های خود را در هر مرحله مشاهده کنند. مراحل مختلف سفارش عبارتند از:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ثبت سفارش
+پردازش سفارش
+ارسال سفارش
+تحویل سفارش
+این سیستم در فایل OrderPage.js پیاده‌سازی شده است.
 
-### `npm test`
+سیستم رتبه‌بندی و نظرات
+سیستم رتبه‌بندی و نظرات به کاربران امکان می‌دهد نظرات خود را درباره کتاب‌ها ثبت کنند و به آن‌ها امتیاز دهند. این سیستم شامل موارد زیر است:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+نمایش میانگین امتیازات
+نمایش توزیع امتیازات (چند درصد 5 ستاره، چند درصد 4 ستاره و ...)
+نمایش نظرات کاربران
+امکان ثبت نظر و امتیاز جدید
+این سیستم در فایل‌های RatingContext.js و RatingPage.js پیاده‌سازی شده است.
 
-### `npm run build`
+پشتیبانی چندزبانه
+سیستم پشتیبانی چندزبانه به کاربران امکان می‌دهد زبان مورد نظر خود را انتخاب کنند. زبان‌های پشتیبانی شده عبارتند از:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+فارسی
+انگلیسی
+عربی
+فرانسوی
+همچنین امکان تغییر جهت متن (RTL/LTR) و فرمت تاریخ نیز وجود دارد.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+این سیستم در فایل‌های i18n.js و LanguagePage.js پیاده‌سازی شده است.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+چت با هوش مصنوعی
+سیستم چت با هوش مصنوعی به کاربران امکان می‌دهد با مشاوران هوشمند گفتگو کنند و سؤالات خود را درباره کتاب‌ها بپرسند. این سیستم شامل چهار نوع مشاور هوشمند است:
 
-### `npm run eject`
+مشاور عمومی کتاب
+پیشنهاددهنده کتاب
+پشتیبانی سایت
+کارشناس ادبیات
+این سیستم در فایل‌های AIChatContext.js، AIChat.js و ChatPage.js پیاده‌سازی شده است.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+صفحه درباره ما
+صفحه درباره ما شامل اطلاعاتی درباره فروشگاه، اعضای تیم، لینک‌های شبکه‌های اجتماعی (توییتر، اینستاگرام، تلگرام) و اطلاعات تماس است.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+این صفحه در فایل AboutPage.js پیاده‌سازی شده است.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+راهنمای نصب و اجرا
+برای نصب و اجرای پروژه، مراحل زیر را دنبال کنید:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ابتدا پروژه را از گیت‌هاب کلون کنید یا فایل زیپ را دانلود و استخراج کنید:
 
-## Learn More
+git clone https://github.com/username/bookstore-project.git
+cd bookstore-project
+وابستگی‌ها را نصب کنید:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+npm install
+پروژه را در محیط توسعه اجرا کنید:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+npm start
+برای ساخت نسخه تولید:
 
-### Code Splitting
+npm run build
+مراحل توسعه
+پروژه در چندین مرحله توسعه داده شده است:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+راه‌اندازی پروژه React: ایجاد پروژه با استفاده از Create React App و نصب وابستگی‌های اصلی
+ساختاردهی پروژه: ایجاد ساختار پوشه‌ها و فایل‌های اصلی
+پیاده‌سازی کامپوننت‌های پایه UI: ایجاد کامپوننت‌های پایه مانند Button، Form، Modal و غیره
+ایجاد صفحات لیست کتاب و جزئیات کتاب: پیاده‌سازی صفحات نمایش کتاب‌ها و جزئیات هر کتاب
+پیاده‌سازی سیستم احراز هویت کاربران: ایجاد صفحات ورود، ثبت‌نام، فراموشی رمز عبور و پروفایل کاربر
+توسعه سیستم پرداخت امانی: پیاده‌سازی سیستم پرداخت امانی و صفحه سبد خرید
+ایجاد سیستم پیگیری سفارشات: پیاده‌سازی صفحه پیگیری سفارشات با نمایش مراحل مختلف سفارش
+ایجاد سیستم رتبه‌بندی و نظرات: پیاده‌سازی سیستم ثبت و نمایش نظرات و امتیازات
+پیاده‌سازی پشتیبانی چندزبانه: اضافه کردن قابلیت تغییر زبان و جهت متن
+توسعه ویژگی چت با هوش مصنوعی: پیاده‌سازی سیستم چت با مشاوران هوشمند
+ایجاد صفحه درباره ما: طراحی صفحه درباره ما با اطلاعات تیم و لینک‌های شبکه‌های اجتماعی
+تست عملکرد برنامه: اطمینان از صحت عملکرد تمام ویژگی‌ها
+تکنولوژی‌های استفاده شده
+در این پروژه از تکنولوژی‌های زیر استفاده شده است:
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+React: کتابخانه JavaScript برای ساخت رابط کاربری
+React Router: برای مدیریت مسیریابی در برنامه
+Context API: برای مدیریت وضعیت (state) در سطح برنامه
+Styled Components: برای استایل‌دهی کامپوننت‌ها
+React Icons: برای استفاده از آیکون‌ها
+i18next: برای پیاده‌سازی پشتیبانی چندزبانه
+Axios: برای ارسال درخواست‌های HTTP

@@ -80,7 +80,7 @@ To install and run the project, follow these steps:
 1. Clone the project from GitHub or download and extract the zip file:  
    ```bash  
    https://github.com/cleverboy01/bookstore.git
-   cd bookstore-project  
+   cd bookstore
    ```  
 2. Install dependencies:  
    ```bash  
